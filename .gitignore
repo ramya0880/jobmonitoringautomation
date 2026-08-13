@@ -1,0 +1,6 @@
+# Build output (compiled classes) - regenerated from source, not committed
+erp-out/
+out/
+
+# H2 database files - local runtime state, not committed
+data/
