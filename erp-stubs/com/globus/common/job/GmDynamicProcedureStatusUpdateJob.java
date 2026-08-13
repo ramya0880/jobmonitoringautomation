@@ -42,7 +42,7 @@ public class GmDynamicProcedureStatusUpdateJob extends GmActionJob implements Sc
 
     // BUG (intentional, for the POC): should be "SP_ERP_JOB_STATUS_UPDATE" -
     // missing trailing "E" does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STATUS_UPDAT";
+    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STATUS_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
