@@ -42,7 +42,7 @@ public class GmDynamicProcedureBadConfigJob extends GmActionJob implements Sched
 
     // BUG (intentional, for the POC): should be "SP_ERP_JOB_STATUS_UPDATE" -
     // this misspelling ("STAUS") does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STAUS_UPDATE";
+    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STATUS_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
