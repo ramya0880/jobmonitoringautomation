@@ -39,9 +39,7 @@ import com.globus.valueobject.common.GmDataStoreVO;
 public class GmDynamicProcedureOrderCloseJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // BUG (intentional, for the POC): should be "SP_ERP_ORDER_CLOSE" - missing
-    // the "E" ("ORDR" instead of "ORDER") does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_ORDR_CLOSE";
+    private static final String PROCEDURE_NAME = "SP_ERP_ORDER_CLOSE";
 
     @Override
     public void execute(Context context) throws Exception {
