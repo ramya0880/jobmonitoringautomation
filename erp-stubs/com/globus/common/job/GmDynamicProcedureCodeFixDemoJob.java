@@ -41,7 +41,7 @@ public class GmDynamicProcedureCodeFixDemoJob extends GmActionJob implements Sch
 
     // BUG (intentional, for the demo): should be "SP_POC_NOOP" - missing one
     // "O" does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_POC_NOOP";
+    private static final String PROCEDURE_NAME = "SP_POC_NOP";
 
     @Override
     public void execute(Context context) throws Exception {
