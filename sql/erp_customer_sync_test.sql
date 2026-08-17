@@ -1,0 +1,13 @@
+-- Sixth demo test case (healthy/completes-successfully by design - no deliberate bug).
+CREATE TABLE IF NOT EXISTS ERP_CUSTOMER_SYNC_TEST (
+  ID            IDENTITY PRIMARY KEY,
+  CUSTOMER_CODE VARCHAR(50),
+  STATUS        VARCHAR(20),
+  CREATED_DATE  TIMESTAMP,
+  MESSAGE       VARCHAR(500)
+);
+
+INSERT INTO ERP_CUSTOMER_SYNC_TEST (CUSTOMER_CODE, STATUS, CREATED_DATE, MESSAGE)
+  VALUES ('CUST-400', 'PENDING', CURRENT_TIMESTAMP, 'Seed row for customer sync demo');
+
+CREATE ALIAS IF NOT EXISTS SP_ERP_CUSTOMER_SYNC FOR "poc.stubs.PocProcedures.syncCustomer";

@@ -16,15 +16,15 @@ import com.globus.common.util.GmActionJob;
 import com.globus.valueobject.common.GmDataStoreVO;
 
 /**
- * POC-only job class - NOT part of the erpjobs source tree
- * (erpjobs-h2-poc/erp-stubs, never written into erpjobs/src). Third,
- * independent demo case (CODE FIX) - new table/procedure, does not touch
- * ERP_JOB_TEST/ERP_JOB_STATUS_TEST or their jobs. Same
- * lifecycle/interface/base-class pattern as the real Globus job classes:
- * extends GmActionJob, implements SchedulableJob, same
- * GmCommonClass -> GmDataStoreVO -> GmDynamicProcedureBean call chain
- * (all real, unmodified erpjobs classes) as GmDynamicProcedureNoParamJob
- * uses.
+ * DEMO job for the Obsidian Job Monitoring Automation RCA/fix pipeline -
+ * dedicated CODE_CHANGE_REQUIRED scenario, kept separate from
+ * GmDynamicProcedureBadConfigJob so the two can run side by side in a demo.
+ * Not part of the erpjobs source tree, lives only in this isolated POC repo.
+ * Intentional bug: PROCEDURE_NAME below is a one-character typo (missing
+ * one "O") of the real, registered H2 alias SP_POC_NOOP (see
+ * erpjobs-h2-poc/sql/poc_schema.sql) - a copy-paste/typo defect in source,
+ * not a data or configuration issue, which is exactly what should classify
+ * as CODE_CHANGE_REQUIRED.
  */
 @Configuration(knownParameters={
         @Parameter(name="companyId", required=true, type=Type.STRING),
@@ -33,16 +33,15 @@ import com.globus.valueobject.common.GmDataStoreVO;
         @Parameter(name="compTimeZone", required=true, type=Type.STRING),
         @Parameter(name="DBConnection", required=false, type=Type.STRING, listArgs={"Test","Stage","PreProd"})
     })
-@Description(value="POC DEMO-FAILURE job: intentionally calls a misspelled procedure name (SP_ERP_INVENTRY_SYNC) to seed a code-fix demo failure.",
+@Description(value="DEMO job: intentionally calls a misspelled procedure name (SP_POC_NOP instead of SP_POC_NOOP) - seeds a CODE_CHANGE_REQUIRED scenario for the RCA automation pipeline.",
             urls= {"http://www.globusmedical.com"})
 
-public class GmDynamicProcedureInventorySyncJob extends GmActionJob implements SchedulableJob{
+public class GmDynamicProcedureCodeFixDemoJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // BUG (intentional, for the POC): should be "SP_ERP_INVENTORY_SYNC" -
-    // missing "O" ("INVENTRY" instead of "INVENTORY") does not match the
-    // real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_INVENTRY_SYNC";
+    // BUG (intentional, for the demo): should be "SP_POC_NOOP" - missing one
+    // "O" does not match the real H2 alias.
+    private static final String PROCEDURE_NAME = "SP_POC_NOOP";
 
     @Override
     public void execute(Context context) throws Exception {

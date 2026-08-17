@@ -1,6 +1,12 @@
 # Build output (compiled classes) - regenerated from source, not committed
 erp-out/
 out/
+fix-verify-out/
 
 # H2 database files - local runtime state, not committed
 data/
+
+# Third-party product install and its extracted jar - distributed via the setup
+# zip, not source, not committed (190MB+ of Obsidian's own binaries/licenses)
+obsidian/
+lib/

@@ -17,9 +17,12 @@ import com.globus.valueobject.common.GmDataStoreVO;
 
 /**
  * POC-only job class - NOT part of the erpjobs source tree
- * (erpjobs-h2-poc/erp-stubs, never written into erpjobs/src). Third,
- * independent demo case (CODE FIX) - new table/procedure, does not touch
- * ERP_JOB_TEST/ERP_JOB_STATUS_TEST or their jobs. Same
+ * (erpjobs-h2-poc/erp-stubs, never written into erpjobs/src). Fourth,
+ * independent demo case (DATA FIX) - new table/procedure, does not touch
+ * ERP_JOB_TEST/ERP_JOB_STATUS_TEST or their jobs. The procedure name below
+ * is CORRECT (matches the real H2 alias) - to seed a data-fix demo failure,
+ * rename the ERP_VENDOR_PAYMENT_TEST.PAID_STATUS column live (schema drift),
+ * the same technique already used on ERP_JOB_STATUS_TEST.STATUS. Same
  * lifecycle/interface/base-class pattern as the real Globus job classes:
  * extends GmActionJob, implements SchedulableJob, same
  * GmCommonClass -> GmDataStoreVO -> GmDynamicProcedureBean call chain
@@ -33,16 +36,13 @@ import com.globus.valueobject.common.GmDataStoreVO;
         @Parameter(name="compTimeZone", required=true, type=Type.STRING),
         @Parameter(name="DBConnection", required=false, type=Type.STRING, listArgs={"Test","Stage","PreProd"})
     })
-@Description(value="POC DEMO-FAILURE job: intentionally calls a misspelled procedure name (SP_ERP_INVENTRY_SYNC) to seed a code-fix demo failure.",
+@Description(value="POC job: runs SP_ERP_VENDOR_PAYMENT_UPDATE (marks VENDOR-200 PAID) in ERP_VENDOR_PAYMENT_TEST.",
             urls= {"http://www.globusmedical.com"})
 
-public class GmDynamicProcedureInventorySyncJob extends GmActionJob implements SchedulableJob{
+public class GmDynamicProcedureVendorPaymentJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // BUG (intentional, for the POC): should be "SP_ERP_INVENTORY_SYNC" -
-    // missing "O" ("INVENTRY" instead of "INVENTORY") does not match the
-    // real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_INVENTRY_SYNC";
+    private static final String PROCEDURE_NAME = "SP_ERP_VENDOR_PAYMENT_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {

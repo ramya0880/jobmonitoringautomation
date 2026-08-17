@@ -16,15 +16,9 @@ import com.globus.common.util.GmActionJob;
 import com.globus.valueobject.common.GmDataStoreVO;
 
 /**
- * POC-only job class - NOT part of the erpjobs source tree
- * (erpjobs-h2-poc/erp-stubs, never written into erpjobs/src). Third,
- * independent demo case (CODE FIX) - new table/procedure, does not touch
- * ERP_JOB_TEST/ERP_JOB_STATUS_TEST or their jobs. Same
- * lifecycle/interface/base-class pattern as the real Globus job classes:
- * extends GmActionJob, implements SchedulableJob, same
- * GmCommonClass -> GmDataStoreVO -> GmDynamicProcedureBean call chain
- * (all real, unmodified erpjobs classes) as GmDynamicProcedureNoParamJob
- * uses.
+ * POC-only job class - NOT part of the erpjobs source tree. Tenth demo
+ * case (healthy - no deliberate bug), new table/procedure, does not touch
+ * any other demo job/table.
  */
 @Configuration(knownParameters={
         @Parameter(name="companyId", required=true, type=Type.STRING),
@@ -33,16 +27,13 @@ import com.globus.valueobject.common.GmDataStoreVO;
         @Parameter(name="compTimeZone", required=true, type=Type.STRING),
         @Parameter(name="DBConnection", required=false, type=Type.STRING, listArgs={"Test","Stage","PreProd"})
     })
-@Description(value="POC DEMO-FAILURE job: intentionally calls a misspelled procedure name (SP_ERP_INVENTRY_SYNC) to seed a code-fix demo failure.",
+@Description(value="POC job: runs SP_ERP_WAREHOUSE_STOCK_UPDATE (marks ITEM-800 UPDATED) in ERP_WAREHOUSE_STOCK_TEST.",
             urls= {"http://www.globusmedical.com"})
 
-public class GmDynamicProcedureInventorySyncJob extends GmActionJob implements SchedulableJob{
+public class GmDynamicProcedureWarehouseStockJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // BUG (intentional, for the POC): should be "SP_ERP_INVENTORY_SYNC" -
-    // missing "O" ("INVENTRY" instead of "INVENTORY") does not match the
-    // real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_INVENTRY_SYNC";
+    private static final String PROCEDURE_NAME = "SP_ERP_WAREHOUSE_STOCK_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
