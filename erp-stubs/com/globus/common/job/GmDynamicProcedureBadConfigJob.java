@@ -40,9 +40,7 @@ import com.globus.valueobject.common.GmDataStoreVO;
 public class GmDynamicProcedureBadConfigJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // BUG (intentional, for the POC): should be "SP_ERP_JOB_STATUS_UPDATE" -
-    // this misspelling ("STAUS") does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STAUS_UPDATE";
+    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STATUS_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
