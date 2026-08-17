@@ -39,7 +39,7 @@ public class GmDynamicProcedureCodeFixDemo2Job extends GmActionJob implements Sc
 
     // BUG (intentional, for the demo): should be "SP_ERP_JOB_TEST_RUN" -
     // missing one "U" does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_JOB_TEST_RN";
+    private static final String PROCEDURE_NAME = "SP_ERP_JOB_TEST_RUN";
 
     @Override
     public void execute(Context context) throws Exception {
