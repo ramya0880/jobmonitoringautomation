@@ -36,7 +36,7 @@ public class GmDynamicProcedureWarehouseStockJob extends GmActionJob implements 
     // BUG (intentional, for the POC): should be "SP_ERP_WAREHOUSE_STOCK_UPDATE" -
     // missing "K" ("WAREHOUSE_STOC" instead of "WAREHOUSE_STOCK") does not
     // match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_WAREHOUSE_STOC_UPDATE";
+    private static final String PROCEDURE_NAME = "SP_ERP_WAREHOUSE_STOCK_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
