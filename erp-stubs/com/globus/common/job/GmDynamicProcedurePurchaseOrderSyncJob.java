@@ -35,10 +35,15 @@ public class GmDynamicProcedurePurchaseOrderSyncJob extends GmActionJob implemen
 
     private static final String PROCEDURE_NAME = "SP_ERP_PURCHASE_ORDER_SYNC";
 
+    // POC demo bug (NullPointerException variant): left null instead of a real default.
+    private static final String VENDOR_REGION = null;
+
     @Override
     public void execute(Context context) throws Exception {
         JobConfig jobConfig = context.getConfig();
         GmCommonClass gmCommonClass = new GmCommonClass();
+
+        log.info("Vendor region: " + VENDOR_REGION.trim());
 
         GmDataStoreVO gmDataStoreVO = gmCommonClass.getGmDataStoreVO(jobConfig);
         GmDynamicProcedureBean gmDynamicProcedureBean = new GmDynamicProcedureBean(gmDataStoreVO);
