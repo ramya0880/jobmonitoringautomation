@@ -33,9 +33,7 @@ import com.globus.valueobject.common.GmDataStoreVO;
 public class GmDynamicProcedureCustomerSyncJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // BUG (intentional, for the POC): should be "SP_ERP_CUSTOMER_SYNC" - missing
-    // the "O" ("CUSTMER" instead of "CUSTOMER") does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_CUSTMER_SYNC";
+    private static final String PROCEDURE_NAME = "SP_ERP_CUSTOMER_SYNC";
 
     @Override
     public void execute(Context context) throws Exception {
