@@ -36,7 +36,7 @@ public class GmDynamicProcedurePurchaseOrderSyncJob extends GmActionJob implemen
     private static final String PROCEDURE_NAME = "SP_ERP_PURCHASE_ORDER_SYNC";
 
     // POC demo bug (NullPointerException variant): left null instead of a real default.
-    private static final String VENDOR_REGION = null;
+    private static final String VENDOR_REGION = "UNKNOWN";
 
     @Override
     public void execute(Context context) throws Exception {
