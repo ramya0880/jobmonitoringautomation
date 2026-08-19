@@ -33,9 +33,9 @@ import com.globus.valueobject.common.GmDataStoreVO;
 public class GmDynamicProcedureShipmentUpdateJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // BUG (intentional, for the POC): should be "SP_ERP_SHIPMENT_UPDATE" - missing
-    // the trailing "E" does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_SHIPMENT_UPDATE";
+    // BUG (intentional, for the POC): should be "SP_ERP_SHIPMENT_UPDATE" - truncated
+    // to "SP_ERP_SHIPMENT_UP" does not match the real H2 alias.
+    private static final String PROCEDURE_NAME = "SP_ERP_SHIPMENT_UP";
 
     @Override
     public void execute(Context context) throws Exception {
