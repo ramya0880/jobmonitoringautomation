@@ -44,10 +44,15 @@ public class GmDynamicProcedureVendorPaymentJob extends GmActionJob implements S
 
     private static final String PROCEDURE_NAME = "SP_ERP_VENDOR_PAYMENT_UPDATE";
 
+    // POC demo bug (NullPointerException variant): left null instead of a real default.
+    private static final String PAYMENT_BATCH_ID = null;
+
     @Override
     public void execute(Context context) throws Exception {
         JobConfig jobConfig = context.getConfig();
         GmCommonClass gmCommonClass = new GmCommonClass();
+
+        log.info("Payment batch: " + PAYMENT_BATCH_ID.trim());
 
         GmDataStoreVO gmDataStoreVO = gmCommonClass.getGmDataStoreVO(jobConfig);
         GmDynamicProcedureBean gmDynamicProcedureBean = new GmDynamicProcedureBean(gmDataStoreVO);
