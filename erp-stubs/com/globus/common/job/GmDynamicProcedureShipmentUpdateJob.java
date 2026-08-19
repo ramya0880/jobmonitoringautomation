@@ -35,7 +35,7 @@ public class GmDynamicProcedureShipmentUpdateJob extends GmActionJob implements 
 
     // BUG (intentional, for the POC): should be "SP_ERP_SHIPMENT_UPDATE" - missing
     // the trailing "E" does not match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_SHIPMENT_UPDAT";
+    private static final String PROCEDURE_NAME = "SP_ERP_SHIPMENT_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
