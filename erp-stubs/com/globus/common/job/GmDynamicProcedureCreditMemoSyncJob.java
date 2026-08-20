@@ -39,7 +39,7 @@ public class GmDynamicProcedureCreditMemoSyncJob extends GmActionJob implements 
     // BUG (intentional, for the demo): ADJUSTMENT_PERCENT is 0, but the validation below
     // requires a strictly positive adjustment percentage - throws IllegalArgumentException
     // before the procedure is ever invoked.
-    private static final int ADJUSTMENT_PERCENT = 0;
+    private static final int ADJUSTMENT_PERCENT = 5;
 
     @Override
     public void execute(Context context) throws Exception {
