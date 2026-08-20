@@ -38,7 +38,7 @@ public class GmDynamicProcedurePurchaseOrderSyncJob extends GmActionJob implemen
     // BUG (intentional, for the POC): left null with no safe default, but dereferenced
     // (.trim()) unconditionally below - throws NullPointerException before the procedure
     // is ever invoked. A logical defect, not a spelling/typo variant.
-    private static final String VENDOR_REGION = null;
+    private static final String VENDOR_REGION = "UNKNOWN";
 
     @Override
     public void execute(Context context) throws Exception {
