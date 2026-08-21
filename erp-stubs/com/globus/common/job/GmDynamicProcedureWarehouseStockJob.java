@@ -34,9 +34,9 @@ public class GmDynamicProcedureWarehouseStockJob extends GmActionJob implements 
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
     // BUG (intentional, for the POC): should be "SP_ERP_WAREHOUSE_STOCK_UPDATE" -
-    // missing "K" ("WAREHOUSE_STOC" instead of "WAREHOUSE_STOCK") does not
-    // match the real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_WAREHOUSE_STOCK_UPDATE";
+    // missing "H" ("WAREHOUSE" -> "WAREOUSE") does not match the real H2 alias.
+    // Fresh variant for a genuinely new failure signature - real Claude RCA connectivity test.
+    private static final String PROCEDURE_NAME = "SP_ERP_WAREOUSE_STOCK_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
