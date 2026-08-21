@@ -44,8 +44,8 @@ public class GmDynamicProcedureVendorPaymentJob extends GmActionJob implements S
 
     private static final String PROCEDURE_NAME = "SP_ERP_VENDOR_PAYMENT_UPDATE";
 
-    // POC demo bug (NullPointerException variant): left null instead of a real default.
-    private static final String PAYMENT_BATCH_ID = null;
+    // Fixed (was left null, causing an unconditional NullPointerException - POC demo, resolved).
+    private static final String PAYMENT_BATCH_ID = "BATCH-DEFAULT";
 
     @Override
     public void execute(Context context) throws Exception {

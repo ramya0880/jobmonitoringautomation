@@ -39,10 +39,8 @@ import com.globus.valueobject.common.GmDataStoreVO;
 public class GmDynamicProcedureInventorySyncJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // BUG (intentional, for the POC): should be "SP_ERP_INVENTORY_SYNC" -
-    // missing "O" ("INVENTRY" instead of "INVENTORY") does not match the
-    // real H2 alias.
-    private static final String PROCEDURE_NAME = "SP_ERP_INVENTRY_SYNC";
+    // Fixed (was "SP_ERP_INVENTRY_SYNC" - missing "O" - POC demo, resolved).
+    private static final String PROCEDURE_NAME = "SP_ERP_INVENTORY_SYNC";
 
     @Override
     public void execute(Context context) throws Exception {
