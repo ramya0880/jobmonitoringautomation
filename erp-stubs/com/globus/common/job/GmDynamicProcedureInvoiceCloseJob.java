@@ -36,7 +36,7 @@ public class GmDynamicProcedureInvoiceCloseJob extends GmActionJob implements Sc
     // BUG (intentional, for the POC): should be "SP_ERP_INVOICE_CLOSE" - missing the
     // "E" in "CLOSE" does not match the real H2 alias. Fresh, never-analyzed failure
     // for a real Claude API token-usage test.
-    private static final String PROCEDURE_NAME = "SP_ERP_INVOICE_CLOS";
+    private static final String PROCEDURE_NAME = "SP_ERP_INVOICE_CLOSE";
 
     @Override
     public void execute(Context context) throws Exception {
