@@ -54,7 +54,7 @@ public class GmDynamicProcedureCustomerSyncJob extends GmActionJob implements Sc
 
         GmDataStoreVO gmDataStoreVO = gmCommonClass.getGmDataStoreVO(jobConfig);
 
-        GmDBManager gmDBManager = new GmDBManager(gmDataStoreVO);
+        GmDBManager gmDBManager = GmDBManager.getGmDBManager(gmDataStoreVO);
         Connection conn = gmDBManager.getConnection();
         PreparedStatement ps = conn.prepareStatement(
                 "SELECT CUSTOMER_CODE FROM ERP_CUSTOMER_SYNC_TEST WHERE CUSTOMER_CODE = 'CUST-400'");
