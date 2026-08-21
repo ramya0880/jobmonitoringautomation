@@ -40,8 +40,10 @@ import com.globus.valueobject.common.GmDataStoreVO;
 public class GmDynamicProcedureBadConfigJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // Fixed (was "SP_ERP_JOB_STATUS_UPDAT" - missing trailing "E" - POC demo, resolved).
-    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STATUS_UPDATE";
+    // BUG (intentional, for the POC): should be "SP_ERP_JOB_STATUS_UPDATE" - missing the
+    // "S" in "STATUS" does not match the real H2 alias. Fresh variant (distinct from the
+    // earlier missing-trailing-E typo) so this reads as a genuinely new failure signature.
+    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STATU_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
