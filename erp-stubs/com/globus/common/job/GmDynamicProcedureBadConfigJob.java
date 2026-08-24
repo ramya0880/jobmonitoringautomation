@@ -43,7 +43,7 @@ public class GmDynamicProcedureBadConfigJob extends GmActionJob implements Sched
     // BUG (intentional, for the POC): should be "SP_ERP_JOB_STATUS_UPDATE" - missing the
     // "U" in "UPDATE" does not match the real H2 alias. Fresh variant for a genuinely new
     // failure signature - real Claude RCA test after fixing the markdown-fence JSON parse bug.
-    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STATUS_PDATE";
+    private static final String PROCEDURE_NAME = "SP_ERP_JOB_STATUS_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
