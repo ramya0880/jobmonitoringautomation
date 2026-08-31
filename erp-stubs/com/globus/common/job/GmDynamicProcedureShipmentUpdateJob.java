@@ -33,8 +33,7 @@ import com.globus.valueobject.common.GmDataStoreVO;
 public class GmDynamicProcedureShipmentUpdateJob extends GmActionJob implements SchedulableJob{
     Logger log = GmLogger.getInstance(this.getClass().getName());
 
-    // Fixed (was "SP_ERP_SHIPMENT_UPDATED" - extra trailing "D" - POC demo, resolved).
-    private static final String PROCEDURE_NAME = "SP_ERP_SHIPMENT_UPDATE";
+    private static final String PROCEDURE_NAME = "SP_ERP_SHIPMNET_UPDATE";
 
     @Override
     public void execute(Context context) throws Exception {
